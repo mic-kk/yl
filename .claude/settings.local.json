@@ -4,7 +4,12 @@
       "Bash(git add *)",
       "Bash(git commit *)",
       "Bash(mvn -q validate)",
-      "Bash(echo \"EXIT=$?\")"
+      "Bash(echo \"EXIT=$?\")",
+      "Bash(mvn -q -pl tcm-common test)",
+      "Bash(awk -F'[ ,]' '{sum+=$3} END {print \"TOTAL TESTS:\", sum}')",
+      "Bash(awk -F'[ ,]' '{sum+=$3; fail+=$5} END {print \"TOTAL TESTS:\", sum, \"FAILURES:\", fail}')",
+      "Bash(mvn -q -pl tcm-trade-platform -am compile)",
+      "Bash(mvn -pl tcm-trade-platform -am test -Dtest=PasswordHashGenTest -Dsurefire.failIfNoSpecifiedTests=false)"
     ]
   }
 }
