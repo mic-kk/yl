@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    # 本机达梦连接：按实际环境修改账号密码
+    url: jdbc:dm://localhost:5236
+    username: SYSDBA
+    password: SYSDBA
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      database: 0
+
+spring.datasource.hikari:
+  maximum-pool-size: 20
+  minimum-idle: 5
+  connection-timeout: 30000

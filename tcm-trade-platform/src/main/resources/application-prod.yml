@@ -1,0 +1,10 @@
+# 生产环境配置模板：
+# 1. 数据库、Redis、MQ、MinIO 等凭据一律走环境变量/配置中心，禁止提交真实密码
+# 2. 达梦 URL 示例：jdbc:dm://<host>:<port>
+# 3. 启用中间件时置 tcm.infrastructure.*.enabled=true
+spring:
+  datasource:
+    driver-class-name: dm.jdbc.driver.DmDriver
+    url: ${TCM_DB_URL}
+    username: ${TCM_DB_USERNAME}
+    password: ${TCM_DB_PASSWORD}

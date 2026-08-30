@@ -1,0 +1,53 @@
+spring:
+  application:
+    name: tcm-trade-platform
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+
+server:
+  port: 8080
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  global-config:
+    banner: false
+    db-config:
+      logic-delete-field: isDeleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  configuration:
+    map-underscore-to-camel-case: true
+
+sa-token:
+  token-name: Authorization
+  timeout: 86400
+  active-timeout: -1
+  is-concurrent: true
+  is-share: false
+  token-style: uuid
+  is-log: false
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+# 中间件开关：默认全部关闭，仅依赖达梦即可启动；启用后按需填写下方配置
+tcm:
+  infrastructure:
+    redis:
+      enabled: false
+    mq:
+      enabled: false
+    minio:
+      enabled: false
+    job:
+      enabled: false
+
+logging:
+  level:
+    com.tcm: debug
